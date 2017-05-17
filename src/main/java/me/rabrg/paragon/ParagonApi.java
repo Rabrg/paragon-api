@@ -2,7 +2,7 @@ package me.rabrg.paragon;
 
 import me.rabrg.paragon.model.Hero;
 import me.rabrg.paragon.model.HeroComplete;
-import me.rabrg.paragon.service.HeroesService;
+import me.rabrg.paragon.service.HeroService;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import retrofit2.Call;
@@ -17,7 +17,7 @@ public class ParagonApi {
     private final OkHttpClient client;
     private final Retrofit retrofit;
 
-    private final HeroesService heroesService;
+    private final HeroService heroService;
 
     public ParagonApi(final String apiKey) {
         final OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
@@ -39,19 +39,19 @@ public class ParagonApi {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        heroesService = retrofit.create(HeroesService.class);
+        heroService = retrofit.create(HeroService.class);
     }
 
     public Hero hero(final String id) throws IOException {
-        return body(heroesService.hero(id));
+        return body(heroService.hero(id));
     }
 
     public List<Hero> heroes() throws IOException {
-        return body(heroesService.heroes());
+        return body(heroService.heroes());
     }
 
     public List<HeroComplete> heroesComplete() throws IOException {
-        return body(heroesService.heroesComplete());
+        return body(heroService.heroesComplete());
     }
 
     private <T> T body(final Call<T> call) throws IOException {

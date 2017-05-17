@@ -8,7 +8,7 @@ import retrofit2.http.Path;
 
 import java.util.List;
 
-public interface HeroesService {
+public interface HeroService {
 
     @GET("/v1/hero/{id}")
     Call<Hero> hero(@Path("id") String id);
