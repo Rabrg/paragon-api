@@ -1,9 +1,14 @@
 package me.rabrg.paragon;
 
+import me.rabrg.paragon.model.account.Account;
+import me.rabrg.paragon.model.account.AccountFind;
+import me.rabrg.paragon.model.account.AccountHeroStats;
+import me.rabrg.paragon.model.account.AccountStats;
 import me.rabrg.paragon.model.card.Card;
 import me.rabrg.paragon.model.card.CardComplete;
 import me.rabrg.paragon.model.hero.Hero;
 import me.rabrg.paragon.model.hero.HeroComplete;
+import me.rabrg.paragon.service.AccountService;
 import me.rabrg.paragon.service.CardService;
 import me.rabrg.paragon.service.HeroService;
 import okhttp3.OkHttpClient;
@@ -20,6 +25,7 @@ public class ParagonApi {
     private final OkHttpClient client;
     private final Retrofit retrofit;
 
+    private final AccountService accountService;
     private final CardService cardService;
     private final HeroService heroService;
 
@@ -43,8 +49,25 @@ public class ParagonApi {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
+        accountService = retrofit.create(AccountService.class);
         cardService = retrofit.create(CardService.class);
         heroService = retrofit.create(HeroService.class);
+    }
+
+    public Account account(final String accountId) throws IOException {
+        return body(accountService.account(accountId));
+    }
+
+    public AccountStats accountStats(final String accountId) throws IOException {
+        return body(accountService.accountStats(accountId));
+    }
+
+    public AccountHeroStats accountHeroStats(final String accountId, final String heroId) throws IOException {
+        return body(accountService.accountHeroStats(accountId, heroId));
+    }
+
+    public String accountFind(final String accountId) throws IOException {
+        return body(accountService.accountFind(accountId)).getAccountId();
     }
 
     public Card card(final String id) throws IOException {
