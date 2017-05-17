@@ -1,9 +1,9 @@
 package me.rabrg.paragon;
 
-import me.rabrg.paragon.model.Card;
-import me.rabrg.paragon.model.CardComplete;
-import me.rabrg.paragon.model.Hero;
-import me.rabrg.paragon.model.HeroComplete;
+import me.rabrg.paragon.model.card.Card;
+import me.rabrg.paragon.model.card.CardComplete;
+import me.rabrg.paragon.model.hero.Hero;
+import me.rabrg.paragon.model.hero.HeroComplete;
 import me.rabrg.paragon.service.CardService;
 import me.rabrg.paragon.service.HeroService;
 import okhttp3.OkHttpClient;

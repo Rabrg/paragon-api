@@ -1,4 +1,4 @@
-package me.rabrg.paragon.model;
+package me.rabrg.paragon.model.card;
 
 import com.google.gson.annotations.SerializedName;
 

@@ -1,7 +1,7 @@
 package me.rabrg.paragon.service;
 
-import me.rabrg.paragon.model.Hero;
-import me.rabrg.paragon.model.HeroComplete;
+import me.rabrg.paragon.model.hero.Hero;
+import me.rabrg.paragon.model.hero.HeroComplete;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;

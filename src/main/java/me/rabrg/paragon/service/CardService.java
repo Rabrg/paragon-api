@@ -1,7 +1,7 @@
 package me.rabrg.paragon.service;
 
-import me.rabrg.paragon.model.Card;
-import me.rabrg.paragon.model.CardComplete;
+import me.rabrg.paragon.model.card.Card;
+import me.rabrg.paragon.model.card.CardComplete;
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
